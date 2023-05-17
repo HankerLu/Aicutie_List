@@ -36,15 +36,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
-
     override func viewDidLoad() {
         print("viewDidLoad")
         super.viewDidLoad()
         view.backgroundColor = .systemPink
         mytblview.register(UITableViewCell.self, forCellReuseIdentifier: "tblcell1")
-        mytblview.register(UITableViewCell.self, forCellReuseIdentifier: "tblcell2")
-        mytblview.register(UITableViewCell.self, forCellReuseIdentifier: "tblcell3")
-        mytblview.register(UITableViewCell.self, forCellReuseIdentifier: "tblcell4")
         // tbl_array.append("tbl data 1")
         // tbl_array.append("tbl data 2")
         // tbl_array.append("tbl data 3")
@@ -55,6 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         button_add.addTarget(self, action: #selector(didTapButton_addtblcell), for: .touchUpInside)
         
         button_remove.addTarget(self, action: #selector(didTapButton_removetblcell), for: .touchUpInside)
+        
     }
     
     @objc func didTapButton_addtblcell(){
@@ -64,7 +61,44 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // add a tableview cell for mytblview
         tbl_array.append("tbl data \(counter_of_button_clicked)")
+
+        //get the last cell
         mytblview.reloadData()
+
+        let button = UIButton()
+        button.setTitle("Button", for: .normal)
+        // button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        let cell = mytblview.cellForRow(at: IndexPath(row: tbl_array.count-1, section: 0))
+//        if cell != nil {
+//            print("cell is not nil")
+//        }
+//        else {
+//            print("cell is nil")
+//        }
+        print("view X Y \(view.frame.origin.x) \(view.frame.origin.y)")
+        print("cell X Y \(cell?.frame.origin.x) \(cell?.frame.origin.y)")
+        
+        
+        let nextButton = UIButton()
+        // cell?.contentView.addSubview(button)
+        mytblview.addSubview(nextButton)
+    
+        nextButton.configuration = .filled()
+        nextButton.configuration?.baseBackgroundColor = .systemPink
+        // nextButton.configuration?.title = "Next"
+
+        // nextButton.addTarget(self, action: #selector(didTapButton_addtblcell), for: .touchUpInside)
+        
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            //set nextButton's X Y to the cell's X Y
+            nextButton.centerXAnchor.constraint(equalTo: cell!.leftAnchor, constant: 15),
+            nextButton.centerYAnchor.constraint(equalTo: cell!.centerYAnchor),
+            nextButton.widthAnchor.constraint(equalToConstant: 25),
+            nextButton.heightAnchor.constraint(equalToConstant: 25)
+         ])
+            
 
         // let vc = storyboard?.instantiateViewController(identifier: "vc2") as! ViewController2
         // vc.modalPresentationStyle = .fullScreen
