@@ -7,6 +7,34 @@
 
 import UIKit
 
+
+struct TodoItem {
+    var title: String
+    var isChecked: Bool
+
+    init(title: String, isChecked: Bool = false) {
+        self.title = title
+        self.isChecked = isChecked
+    }
+}
+
+class TodoItemCell: UITableViewCell {
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var checkboxButton: UIButton!
+
+    var isChecked = false {
+        didSet {
+            // let imageName = isChecked ? "checkbox_checked" : "checkbox_unchecked"
+            // checkboxButton.setImage(UIImage(named: imageName), for: .normal)
+            print("isChecked = \(isChecked)")
+        }
+    }
+
+    @IBAction func checkboxTapped(_ sender: Any) {
+        isChecked = !isChecked
+    }
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
 //    weak var delegate:UITableDelegate！
@@ -19,7 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    @IBOutlet var mytblcell_3: UITableViewCell!
 //    @IBOutlet var mytblcell_4: UITableViewCell!
     
-    var tbl_array =  [String]()
+    var tbl_array =  [TodoItem]()
     
     //define a counter variable
     var counter_of_button_clicked = 0
@@ -31,16 +59,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // print("indexPath.row = \(indexPath.row)")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tblcell1", for: indexPath) 
-        cell.textLabel?.text = tbl_array[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tblcell1", for: indexPath) as! TodoItemCell
+        var todoItem = tbl_array[indexPath.row]
+        cell.textLabel?.text = todoItem.title
+        cell.isChecked = todoItem.isChecked
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var todoItem = tbl_array[indexPath.row]
+        // print("before todoItem.isChecked = \(todoItem.isChecked)")
+        todoItem.isChecked = !todoItem.isChecked
+        tbl_array[indexPath.row].isChecked = todoItem.isChecked
+        print("todoItem.isChecked = \(todoItem.isChecked)")
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+
+    // func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> TodoItemCell {
+    // // print("indexPath.row = \(indexPath.row)")
+    // let cell = tableView.dequeueReusableCell(withIdentifier: "tblcell1", for: indexPath)  as! TodoItemCell
+    // cell.textLabel?.text = tbl_array[indexPath.row].title
+    // return cell
+    // }
 
     override func viewDidLoad() {
         print("viewDidLoad")
         super.viewDidLoad()
         view.backgroundColor = .systemPink
-        mytblview.register(UITableViewCell.self, forCellReuseIdentifier: "tblcell1")
+        mytblview.register(TodoItemCell.self, forCellReuseIdentifier: "tblcell1")
         // tbl_array.append("tbl data 1")
         // tbl_array.append("tbl data 2")
         // tbl_array.append("tbl data 3")
@@ -60,7 +106,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mylabel.text = "current cell num: \(counter_of_button_clicked)"
         
         // add a tableview cell to the top of mytblview
-        tbl_array.insert("tbl data \(counter_of_button_clicked)", at: 0)
+        // tbl_array.insert(TodoItem(title: "tbl data \(counter_of_button_clicked)"), at: 0)
+        tbl_array.append(TodoItem(title: "tbl data \(counter_of_button_clicked)"))
+        mytblview.insertRows(at: [IndexPath(row: tbl_array.count - 1, section: 0)], with: .automatic)
+        // Reference to member 'insertRows' cannot be resolved without a contextual type
         // tbl_array.append("tbl data \(counter_of_button_clicked)")
 
         //get the last cell
@@ -130,3 +179,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
 }
 
+// class TodoListViewController: UITableViewController {
+//     var todoItems = [TodoItem]()
+
+//     @IBAction func addTodoItem(_ sender: Any) {
+//         let newTodoItem = TodoItem(title: "New Todo Item")
+//         todoItems.append(newTodoItem)
+//         tableView.insertRows(at: [IndexPath(row: todoItems.count - 1, section: 0)], with: .automatic)
+//     }
+
+//     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//         return todoItems.count
+//     }
+
+//     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath) as! TodoItemCell
+//         let todoItem = todoItems[indexPath.row]
+//         cell.titleLabel.text = todoItem.title
+//         cell.isChecked = todoItem.isChecked
+//         return cell
+//     }
+
+//     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//         let todoItem = todoItems[indexPath.row]
+//         todoItem.isChecked = !todoItem.isChecked
+//         tableView.reloadRows(at: [indexPath], with: .automatic)
+//     }
+// }
