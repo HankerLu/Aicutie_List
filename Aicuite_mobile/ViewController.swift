@@ -72,12 +72,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
-    // func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> TodoItemCell {
-    // // print("indexPath.row = \(indexPath.row)")
-    // let cell = tableView.dequeueReusableCell(withIdentifier: "tblcell1", for: indexPath)  as! TodoItemCell
-    // cell.textLabel?.text = tbl_array[indexPath.row].title
-    // return cell
+    // func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //     print("editingStyle = \(editingStyle)")
+    //     if editingStyle == .delete {
+    //         // 删除对应的数据
+    //         tbl_array.remove(at: indexPath.row)
+    //         // 删除对应的行
+    //         tableView.deleteRows(at: [indexPath], with: .fade)
+    //     }
     // }
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        print("editActionsForRowAt")
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "删除") { (action, indexPath) in
+            // 删除对应的数据
+            self.tbl_array.remove(at: indexPath.row)
+            // 删除对应的行
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        return [deleteAction]
+    }
+    
+    
 
     override func viewDidLoad() {
         print("viewDidLoad")
