@@ -72,26 +72,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
-    // func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //     print("editingStyle = \(editingStyle)")
-    //     if editingStyle == .delete {
-    //         // 删除对应的数据
-    //         tbl_array.remove(at: indexPath.row)
-    //         // 删除对应的行
-    //         tableView.deleteRows(at: [indexPath], with: .fade)
-    //     }
-    // }
-
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        print("editActionsForRowAt")
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "删除") { (action, indexPath) in
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        print("editingStyle = \(editingStyle)")
+        if editingStyle == .delete {
             // 删除对应的数据
-            self.tbl_array.remove(at: indexPath.row)
+            tbl_array.remove(at: indexPath.row)
             // 删除对应的行
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-        return [deleteAction]
+        mylabel.text = "current cell num: \(tbl_array.count + 1)"
     }
+
+    // func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    //     print("editActionsForRowAt")
+    //     // let deleteAction = UIContextualAction(style: .destructive, title: "删除") { (action, view, finished) in
+    //     //     self.tbl_array.remove(at: indexPath.row)
+    //     //     tableView.deleteRows(at: [indexPath], with: .fade)
+    //     //     finished(true)
+    //     // }
+    //     let deleteAction = UITableViewRowAction(style: .destructive, title: "删除") { (action, indexPath) in
+    //         self.tbl_array.remove(at: indexPath.row)
+    //         tableView.deleteRows(at: [indexPath], with: .fade)
+    //     }
+    //     return [deleteAction]
+    // }
     
     
 
@@ -116,7 +120,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @objc func didTapButton_addtblcell(){
         print("didTapButton_addtblcell, counter_of_button_clicked = \(counter_of_button_clicked)")
         counter_of_button_clicked += 1
-        mylabel.text = "current cell num: \(counter_of_button_clicked)"
+        mylabel.text = "current cell num: \(tbl_array.count + 1)"
         
         // add a tableview cell to the top of mytblview
         // tbl_array.insert(TodoItem(title: "tbl data \(counter_of_button_clicked)"), at: 0)
