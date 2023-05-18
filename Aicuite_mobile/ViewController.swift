@@ -56,7 +56,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // print("indexPath.row = \(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "tblcell1", for: indexPath) as! TodoItemCell
-        var todoItem = tbl_array[indexPath.row]
+        let todoItem = tbl_array[indexPath.row]
         cell.textLabel?.text = todoItem.title
         cell.isChecked = todoItem.isChecked
         cell.accessoryType = todoItem.isChecked ? .checkmark : .none
@@ -112,27 +112,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //get the last cell
         mytblview.reloadData()
 
-        // let cell = mytblview.cellForRow(at: IndexPath(row: tbl_array.count-1, section: 0)) as! TodoItemCell
-        let cell = mytblview.dequeueReusableCell(withIdentifier: "tblcell1", for: IndexPath(row: tbl_array.count-1, section: 0)) as! TodoItemCell
-        // print("view X Y \(view.frame.origin.x) \(view.frame.origin.y)")
-        // print("cell X Y \(cell?.frame.origin.x) \(cell?.frame.origin.y)")
-        // print("table W H \(mytblview.frame.size.width) \(mytblview.frame.size.height)")
-        let nextButton = cell.checkboxButton
-        // nextButton = cell.checkboxButton
-        cell.contentView.addSubview(nextButton)
-        // mytblview.addSubview(nextButton)
-        nextButton.configuration = .filled()
-        // nextButton.configuration?.baseBackgroundColor = .systemPink
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            // nextButton.centerXAnchor.constraint(equalTo: mytblview.leftAnchor, constant: 15),
-            // nextButton.centerYAnchor.constraint(equalTo: mytblview.centerYAnchor),
-            nextButton.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
-            nextButton.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
-            nextButton.widthAnchor.constraint(equalToConstant: 25),
-            nextButton.heightAnchor.constraint(equalToConstant: 25)
-         ])
+        // let cell = mytblview.dequeueReusableCell(withIdentifier: "tblcell1", for: IndexPath(row: tbl_array.count-1, section: 0)) as! TodoItemCell
+        // let nextButton = cell.checkboxButton
+        // cell.contentView.addSubview(nextButton)
+        // nextButton.configuration = .filled()
+        // // nextButton.configuration?.baseBackgroundColor = .systemPink
+        // nextButton.translatesAutoresizingMaskIntoConstraints = false
+        // NSLayoutConstraint.activate([
+        //     // nextButton.centerXAnchor.constraint(equalTo: mytblview.leftAnchor, constant: 15),
+        //     // nextButton.centerYAnchor.constraint(equalTo: mytblview.centerYAnchor),
+        //     nextButton.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
+        //     nextButton.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
+        //     nextButton.widthAnchor.constraint(equalToConstant: 25),
+        //     nextButton.heightAnchor.constraint(equalToConstant: 25)
+        //  ])
 
     }
 
