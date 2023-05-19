@@ -89,12 +89,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.mylabel.text = "current cell num: \(self.tbl_array.count)"
             completionHandler(true)
         }
-        let shareAction = UIContextualAction(style: .normal, title: "set time") { (action, view, completionHandler) in
-            // 实现分享操作
+        let setTimeAction = UIContextualAction(style: .normal, title: "set time") { (action, view, completionHandler) in
+            let alertController = UIAlertController(title: "提示", message: "确定要执行此操作吗？", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "confirm", style: .default) { (action) in
+                // 点击确定按钮后执行的操作
+            }
+            alertController.addAction(okAction)
+            let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            self.present(alertController, animated: true, completion: nil)
             completionHandler(true)
         }
-        shareAction.backgroundColor = .blue
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        setTimeAction.backgroundColor = .blue
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, setTimeAction])
         return configuration
     }
     
