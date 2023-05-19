@@ -36,6 +36,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 //    weak var delegate:UITableDelegate！
     @IBOutlet var mytblview: UITableView!
     @IBOutlet var mylabel: UILabel!
+    @IBOutlet var time_display_label: UILabel!
     @IBOutlet var button_add: UIButton!
     @IBOutlet var button_remove: UIButton!
 //    @IBOutlet var mytblcell_1: UITableViewCell!
@@ -45,8 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var tbl_array =  [TodoItem]()
     
-    //define a counter variable
-    var counter_of_button_clicked = 0
+    var index_of_row_clicked = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // print("section = \(section)")
@@ -64,6 +64,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        index_of_row_clicked = indexPath.row
+        time_display_label.text = "Current Row:\(index_of_row_clicked + 1)"
         var todoItem = tbl_array[indexPath.row]
         // print("before todoItem.isChecked = \(todoItem.isChecked)")
         todoItem.isChecked = !todoItem.isChecked
@@ -119,20 +121,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         button_add.addTarget(self, action: #selector(didTapButton_addtblcell), for: .touchUpInside)
         
         button_remove.addTarget(self, action: #selector(didTapButton_removetblcell), for: .touchUpInside)
+
+        time_display_label.text = "Current Row:\(index_of_row_clicked + 1)"
         
     }
     
     @objc func didTapButton_addtblcell(){
-        print("didTapButton_addtblcell, counter_of_button_clicked = \(counter_of_button_clicked)")
-        counter_of_button_clicked += 1
         mylabel.text = "current cell num: \(tbl_array.count + 1)"
         
         // add a tableview cell to the top of mytblview
-        // tbl_array.insert(TodoItem(title: "tbl data \(counter_of_button_clicked)"), at: 0)
-        tbl_array.append(TodoItem(title: "tbl data \(counter_of_button_clicked)"))
+        tbl_array.append(TodoItem(title: "tbl data \(tbl_array.count + 1)"))
         mytblview.insertRows(at: [IndexPath(row: tbl_array.count - 1, section: 0)], with: .automatic)
         // Reference to member 'insertRows' cannot be resolved without a contextual type
-        // tbl_array.append("tbl data \(counter_of_button_clicked)")
 
         //get the last cell
         mytblview.reloadData()
@@ -160,9 +160,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("tbl_array.count == 0")
             return
         }
-        print("didTapButton_removetblcell, counter_of_button_clicked = \(counter_of_button_clicked)")
-        counter_of_button_clicked -= 1
-        mylabel.text = "current cell num: \(counter_of_button_clicked)"
+        mylabel.text = "current cell num: \(tbl_array.count + 1)"
         
         // remove a tableview cell for mytblview
         tbl_array.removeLast()
