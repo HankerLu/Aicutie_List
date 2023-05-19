@@ -83,6 +83,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mylabel.text = "current cell num: \(tbl_array.count + 1)"
     }
 
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        print("canEditRowAt")
+        return true
+    }
+
     // func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     //     print("editActionsForRowAt")
     //     // let deleteAction = UIContextualAction(style: .destructive, title: "删除") { (action, view, finished) in
