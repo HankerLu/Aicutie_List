@@ -90,9 +90,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             completionHandler(true)
         }
         let setTimeAction = UIContextualAction(style: .normal, title: "set time") { (action, view, completionHandler) in
-            let alertController = UIAlertController(title: "提示", message: "确定要执行此操作吗？", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "time", message: nil, preferredStyle: .alert)
+            
+            alertController.viewDidLoad()
+            alertController.preferredContentSize = CGSize(width: 300,  height: 400)
+            // datePicker.frame = CGRect(x: 0, y: 0, width: 300, height: 150)
+
+            let datePicker = UIDatePicker()
+            datePicker.datePickerMode = .time
+            alertController.view.addSubview(datePicker)
+
             let okAction = UIAlertAction(title: "confirm", style: .default) { (action) in
-                // 点击确定按钮后执行的操作
+                let selectedTime = datePicker.date
             }
             alertController.addAction(okAction)
             let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
