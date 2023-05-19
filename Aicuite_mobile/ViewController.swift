@@ -25,7 +25,7 @@ class TodoItemCell: UITableViewCell {
         didSet {
             // let imageName = isChecked ? "checkbox_checked" : "checkbox_unchecked"
             // checkboxButton.setImage(UIImage(named: imageName), for: .normal)
-            print("isChecked = \(isChecked)")
+            // print("isChecked = \(isChecked)")
         }
     }
 
@@ -54,12 +54,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // print("indexPath.row = \(indexPath.row)")
+        print("indexPath.row = \(indexPath.row)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "tblcell1", for: indexPath) as! TodoItemCell
         let todoItem = tbl_array[indexPath.row]
         cell.textLabel?.text = todoItem.title
         cell.isChecked = todoItem.isChecked
         cell.accessoryType = todoItem.isChecked ? .checkmark : .none
+        
         return cell
     }
 
@@ -67,11 +68,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         index_of_row_clicked = indexPath.row
         time_display_label.text = "Current Row:\(index_of_row_clicked + 1)"
         var todoItem = tbl_array[indexPath.row]
-        // print("before todoItem.isChecked = \(todoItem.isChecked)")
-        todoItem.isChecked = !todoItem.isChecked
-        tbl_array[indexPath.row].isChecked = todoItem.isChecked
+        tbl_array[indexPath.row].isChecked = !todoItem.isChecked
+
+        // indexPath.row % 2 == 0 ? (tableView.cellForRow(at: indexPath)?.backgroundColor = .systemPink) : (tableView.cellForRow(at: indexPath)?.backgroundColor = .systemTeal)
+        // backgroundColor = .systemPink
+
         print("todoItem.isChecked = \(todoItem.isChecked)")
         tableView.reloadRows(at: [indexPath], with: .automatic)
+
+        for i in 0..<tbl_array.count {
+            tableView.cellForRow(at: IndexPath(row: i, section: 0))?.backgroundColor = .none
+        }
+        tableView.cellForRow(at: IndexPath(row: index_of_row_clicked, section: 0))?.backgroundColor = .systemPink
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -85,10 +93,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mylabel.text = "current cell num: \(tbl_array.count + 1)"
     }
 
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        print("canEditRowAt")
-        return true
-    }
+    // func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+    //     print("canEditRowAt")
+    //     return true
+    // }
 
     // func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     //     print("editActionsForRowAt")
@@ -127,13 +135,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @objc func didTapButton_addtblcell(){
-        mylabel.text = "current cell num: \(tbl_array.count + 1)"
-        
         // add a tableview cell to the top of mytblview
         tbl_array.append(TodoItem(title: "tbl data \(tbl_array.count + 1)"))
-        mytblview.insertRows(at: [IndexPath(row: tbl_array.count - 1, section: 0)], with: .automatic)
-        // Reference to member 'insertRows' cannot be resolved without a contextual type
-
+        // mytblview.insertRows(at: [IndexPath(row: tbl_array.count - 1, section: 0)], with: .automatic)
+        mylabel.text = "current cell num: \(tbl_array.count)"
         //get the last cell
         mytblview.reloadData()
 
@@ -160,10 +165,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             print("tbl_array.count == 0")
             return
         }
-        mylabel.text = "current cell num: \(tbl_array.count + 1)"
         
         // remove a tableview cell for mytblview
         tbl_array.removeLast()
+        mylabel.text = "current cell num: \(tbl_array.count)"
         mytblview.reloadData()
 
         // let vc = storyboard?.instantiateViewController(identifier: "vc2") as! ViewController2
