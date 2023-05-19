@@ -16,7 +16,11 @@ class TaskSettingScreen: UIViewController {
     @IBOutlet var button_time_hms_enable_switch: UISwitch!
 
     @IBAction func button_timeset_confirm_clicked(_ sender: Any) {
-        print("button_timeset_confirm_clicked")
+
+        let main_storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let main_targetVC = main_storyboard.instantiateViewController(withIdentifier: "main_ID")
+        print("button_timeset_confirm_clicked/ button_date_picker.date = \(button_date_picker.date)")
+
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()
         self.removeFromParent()

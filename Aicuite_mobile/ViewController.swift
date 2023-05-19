@@ -11,6 +11,7 @@ import UIKit
 struct TodoItem {
     var title: String
     var isChecked: Bool
+    var select_date: Date?
 
     init(title: String, isChecked: Bool = false) {
         self.title = title
@@ -186,6 +187,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // let vc = storyboard?.instantiateViewController(identifier: "vc2") as! ViewController2
         // vc.modalPresentationStyle = .fullScreen
         // present(vc, animated: true)
+    }
+
+    func setToDoTaskTime(date_select_in: Date) {
+        print("setToDoTaskTime")
+        tbl_array[index_of_row_clicked].select_date = date_select_in
     }
 
 }
