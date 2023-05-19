@@ -82,36 +82,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.cellForRow(at: IndexPath(row: index_of_row_clicked, section: 0))?.backgroundColor = .systemPink
     }
 
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        print("editingStyle = \(editingStyle)")
-        if editingStyle == .delete {
-            tbl_array.remove(at: indexPath.row)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "delete") { (action, view, completionHandler) in
+            self.tbl_array.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.mylabel.text = "current cell num: \(self.tbl_array.count)"
+            completionHandler(true)
         }
-        mylabel.text = "current cell num: \(tbl_array.count + 1)"
+        let shareAction = UIContextualAction(style: .normal, title: "set time") { (action, view, completionHandler) in
+            // 实现分享操作
+            completionHandler(true)
+        }
+        shareAction.backgroundColor = .blue
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        return configuration
     }
-
-    // func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    //     print("canEditRowAt")
-    //     return true
-    // }
-
-    // func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    //     print("editActionsForRowAt")
-    //     // let deleteAction = UIContextualAction(style: .destructive, title: "删除") { (action, view, finished) in
-    //     //     self.tbl_array.remove(at: indexPath.row)
-    //     //     tableView.deleteRows(at: [indexPath], with: .fade)
-    //     //     finished(true)
-    //     // }
-    //     let deleteAction = UITableViewRowAction(style: .destructive, title: "删除") { (action, indexPath) in
-    //         self.tbl_array.remove(at: indexPath.row)
-    //         tableView.deleteRows(at: [indexPath], with: .fade)
-    //     }
-    //     return [deleteAction]
-    // }
     
-    
-
     override func viewDidLoad() {
         print("viewDidLoad")
         super.viewDidLoad()
