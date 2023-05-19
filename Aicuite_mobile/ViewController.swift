@@ -60,7 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = todoItem.title
         cell.isChecked = todoItem.isChecked
         cell.accessoryType = todoItem.isChecked ? .checkmark : .none
-        
+        cell.backgroundColor = .none
         return cell
     }
 
@@ -85,9 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         print("editingStyle = \(editingStyle)")
         if editingStyle == .delete {
-            // 删除对应的数据
             tbl_array.remove(at: indexPath.row)
-            // 删除对应的行
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         mylabel.text = "current cell num: \(tbl_array.count + 1)"
