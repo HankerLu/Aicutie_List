@@ -90,23 +90,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             completionHandler(true)
         }
         let setTimeAction = UIContextualAction(style: .normal, title: "set time") { (action, view, completionHandler) in
-            let alertController = UIAlertController(title: "time", message: nil, preferredStyle: .alert)
+            // let alertController = UIAlertController(title: "time", message: nil, preferredStyle: .alert)
             
-            alertController.viewDidLoad()
-            alertController.preferredContentSize = CGSize(width: 300,  height: 400)
-            // datePicker.frame = CGRect(x: 0, y: 0, width: 300, height: 150)
+            // alertController.viewDidLoad()
+            // alertController.preferredContentSize = CGSize(width: 300,  height: 400)
+            // // datePicker.frame = CGRect(x: 0, y: 0, width: 300, height: 150)
 
-            let datePicker = UIDatePicker()
-            datePicker.datePickerMode = .time
-            alertController.view.addSubview(datePicker)
+            // let datePicker = UIDatePicker()
+            // datePicker.datePickerMode = .time
+            // alertController.view.addSubview(datePicker)
 
-            let okAction = UIAlertAction(title: "confirm", style: .default) { (action) in
-                let selectedTime = datePicker.date
-            }
-            alertController.addAction(okAction)
-            let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
-            alertController.addAction(cancelAction)
-            self.present(alertController, animated: true, completion: nil)
+            // let okAction = UIAlertAction(title: "confirm", style: .default) { (action) in
+            //     let selectedTime = datePicker.date
+            //     print("selectedTime...")
+            // }
+            // alertController.addAction(okAction)
+            // let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+            // alertController.addAction(cancelAction)
+            // self.present(alertController, animated: true, completion: nil)
+
+            let popupStoryboard = UIStoryboard(name: "tasktime", bundle: nil)
+            let popupViewController = popupStoryboard.instantiateViewController(withIdentifier: "tasktime_ID")
+            // popupViewController.modalPresentationStyle = .overCurrentContext
+            self.addChild(popupViewController)
+            self.view.addSubview(popupViewController.view)
+            popupViewController.didMove(toParent: self)
+            popupViewController.view.frame = CGRect(x: 25, y: 150, width: self.view.frame.width - 50, height: self.view.frame.height - 300)
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissTaskTimeSettingVC))
+            self.view.addGestureRecognizer(tapGesture)
+
+            // self.present(popupViewController, animated: true, completion: nil)
             completionHandler(true)
         }
         setTimeAction.backgroundColor = .blue
@@ -114,6 +127,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return configuration
     }
     
+    @objc func dismissTaskTimeSettingVC() {
+        //reconise if the position of the tap is in the popup view
+        // if yes, do nothing
+        // if no, dismiss the popup view
+        print("dismissTaskTimeSettingVC")
+        if let popupViewController = self.children.last {
+            let tapPoint = self.view.gestureRecognizers?.first?.location(in: self.view)
+            let isPointInPopupView = popupViewController.view.frame.contains(tapPoint!)
+            if !isPointInPopupView {
+                // self.removePopup()
+                self.view.gestureRecognizers?.removeAll()
+                self.children.last?.willMove(toParent: nil)
+                self.children.last?.view.removeFromSuperview()
+                self.children.last?.removeFromParent()
+            }
+        }
+    } 
+
     override func viewDidLoad() {
         print("viewDidLoad")
         super.viewDidLoad()
