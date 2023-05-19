@@ -17,10 +17,16 @@ class TaskSettingScreen: UIViewController {
 
     @IBAction func button_timeset_confirm_clicked(_ sender: Any) {
         print("button_timeset_confirm_clicked")
+        self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParent()
     }
 
     @IBAction func button_timeset_cancel_clicked(_ sender: Any) {
         print("button_timeset_cancel_clicked")
+        self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParent()
     }
 
     override func viewDidLoad() {

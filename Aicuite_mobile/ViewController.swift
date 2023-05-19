@@ -19,13 +19,8 @@ struct TodoItem {
 }
 
 class TodoItemCell: UITableViewCell {
-    var checkboxButton = UIButton()
-
     var isChecked = false {
         didSet {
-            // let imageName = isChecked ? "checkbox_checked" : "checkbox_unchecked"
-            // checkboxButton.setImage(UIImage(named: imageName), for: .normal)
-            // print("isChecked = \(isChecked)")
         }
     }
 
@@ -114,6 +109,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             // popupViewController.modalPresentationStyle = .overCurrentContext
             self.addChild(popupViewController)
             self.view.addSubview(popupViewController.view)
+
             popupViewController.didMove(toParent: self)
             popupViewController.view.frame = CGRect(x: 25, y: 150, width: self.view.frame.width - 50, height: self.view.frame.height - 300)
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissTaskTimeSettingVC))
@@ -172,21 +168,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         mylabel.text = "current cell num: \(tbl_array.count)"
         //get the last cell
         mytblview.reloadData()
-
-        // let cell = mytblview.dequeueReusableCell(withIdentifier: "tblcell1", for: IndexPath(row: tbl_array.count-1, section: 0)) as! TodoItemCell
-        // let nextButton = cell.checkboxButton
-        // cell.contentView.addSubview(nextButton)
-        // nextButton.configuration = .filled()
-        // // nextButton.configuration?.baseBackgroundColor = .systemPink
-        // nextButton.translatesAutoresizingMaskIntoConstraints = false
-        // NSLayoutConstraint.activate([
-        //     // nextButton.centerXAnchor.constraint(equalTo: mytblview.leftAnchor, constant: 15),
-        //     // nextButton.centerYAnchor.constraint(equalTo: mytblview.centerYAnchor),
-        //     nextButton.centerXAnchor.constraint(equalTo: cell.contentView.centerXAnchor),
-        //     nextButton.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor),
-        //     nextButton.widthAnchor.constraint(equalToConstant: 25),
-        //     nextButton.heightAnchor.constraint(equalToConstant: 25)
-        //  ])
 
     }
 
