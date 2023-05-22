@@ -8,6 +8,17 @@
 import Foundation
 import UIKit
 
+
+
+
+// extension ViewController: DatePickerDelegate {
+//     // print("extension ViewController: DatePickerDelegate")
+//     func didDatePicked(date: Date) {
+//         print("didDatePicked")
+//         print("date = \(date)")
+//     }
+// }
+
 class TaskSettingScreen: UIViewController {
 
     @IBOutlet var button_timeset_confirm: UIButton!
@@ -15,11 +26,16 @@ class TaskSettingScreen: UIViewController {
     @IBOutlet var button_date_picker: UIDatePicker!
     @IBOutlet var button_time_hms_enable_switch: UISwitch!
 
+
+    weak var delegate: DatePickerDelegate?
+
     @IBAction func button_timeset_confirm_clicked(_ sender: Any) {
 
         // let main_storyboard = UIStoryboard(name: "Main", bundle: nil)
         // let main_targetVC = main_storyboard.instantiateViewController(withIdentifier: "main_ID")
-        print("button_timeset_confirm_clicked/ button_date_picker.date = \(button_date_picker.date)")
+
+        let date_in = button_date_picker.date
+        delegate?.didDatePicked(date: date_in)
 
         self.parent?.view.gestureRecognizers?.removeAll()
         self.willMove(toParent: nil)
@@ -39,10 +55,9 @@ class TaskSettingScreen: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemMint
-        
+
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation

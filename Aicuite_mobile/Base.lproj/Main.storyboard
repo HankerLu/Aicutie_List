@@ -38,15 +38,14 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="-"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wc-zl-vje">
-                                <rect key="frame" x="81" y="750" width="231" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wc-zl-vje">
+                                <rect key="frame" x="81" y="742" width="231" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N33-OI-6PX">
-                                <rect key="frame" x="81" y="122" width="231" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N33-OI-6PX">
+                                <rect key="frame" x="196.66666666666666" y="126" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -59,10 +58,12 @@
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="trailing" secondItem="tfx-DI-5fz" secondAttribute="trailing" id="6Fj-yV-lan"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9kl-L1-bmz"/>
                             <constraint firstItem="l3S-LX-D5Z" firstAttribute="top" secondItem="1Wc-zl-vje" secondAttribute="top" id="GwX-pD-mnD"/>
+                            <constraint firstItem="N33-OI-6PX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-300" id="MXG-YE-h4n"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="centerX" secondItem="1Wc-zl-vje" secondAttribute="centerX" id="TxH-1a-msN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1Wc-zl-vje" secondAttribute="bottom" constant="54" id="YSg-Za-lLE"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Yu9-CH-fkW"/>
                             <constraint firstItem="l3S-LX-D5Z" firstAttribute="top" secondItem="2bT-fs-ec2" secondAttribute="bottom" constant="72" id="ZRO-m5-9Hz"/>
+                            <constraint firstItem="N33-OI-6PX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aTu-Pk-ygF"/>
                             <constraint firstItem="tfx-DI-5fz" firstAttribute="leading" secondItem="1Wc-zl-vje" secondAttribute="trailing" constant="33" id="gk1-ne-KPy"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="leading" secondItem="l3S-LX-D5Z" secondAttribute="leading" id="qt5-qn-Hxp"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="123" id="sSO-9Z-4E9"/>

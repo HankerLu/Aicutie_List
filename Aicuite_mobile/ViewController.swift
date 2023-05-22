@@ -27,7 +27,13 @@ class TodoItemCell: UITableViewCell {
 
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+protocol DatePickerDelegate: AnyObject{
+    // print("DatePickerDelegate")
+
+    func didDatePicked(date: Date)
+}
+
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DatePickerDelegate{
 
 //    weak var delegate:UITableDelegate！
     @IBOutlet var mytblview: UITableView!
@@ -43,7 +49,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var tbl_array =  [TodoItem]()
     
     var index_of_row_clicked = 0
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // print("section = \(section)")
         return tbl_array.count
@@ -62,7 +68,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         index_of_row_clicked = indexPath.row
-        time_display_label.text = "Current Row:\(index_of_row_clicked + 1)"
+        self.set_cur_row_num_and_select_index()
+        self.set_cur_task_time()
         var todoItem = tbl_array[indexPath.row]
         tbl_array[indexPath.row].isChecked = !todoItem.isChecked
 
@@ -82,7 +89,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let deleteAction = UIContextualAction(style: .destructive, title: "delete") { (action, view, completionHandler) in
             self.tbl_array.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            self.mylabel.text = "current cell num: \(self.tbl_array.count)"
+            // self.mylabel.text = "num: \(self.tbl_array.count) select: \(index_of_row_clicked + 1)"
+            self.set_cur_row_num_and_select_index()
             completionHandler(true)
         }
         let setTimeAction = UIContextualAction(style: .normal, title: "set time") { (action, view, completionHandler) in
@@ -104,10 +112,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             // let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
             // alertController.addAction(cancelAction)
             // self.present(alertController, animated: true, completion: nil)
+            
 
             let popupStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let popupViewController = popupStoryboard.instantiateViewController(withIdentifier: "timeset_ID")
-
+            if let popupViewController = popupViewController as? TaskSettingScreen {
+                print("popupViewController = segue.destination as? TaskSettingScreen")
+                        popupViewController.delegate = self
+            }
             self.addChild(popupViewController)
             self.view.addSubview(popupViewController.view)
             popupViewController.didMove(toParent: self)
@@ -160,7 +172,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         button_remove.addTarget(self, action: #selector(didTapButton_removetblcell), for: .touchUpInside)
 
-        time_display_label.text = "Current Row:\(index_of_row_clicked + 1)"
+        self.set_cur_row_num_and_select_index()
         
     }
     
@@ -168,7 +180,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // add a tableview cell to the top of mytblview
         tbl_array.append(TodoItem(title: "tbl data \(tbl_array.count + 1)"))
         // mytblview.insertRows(at: [IndexPath(row: tbl_array.count - 1, section: 0)], with: .automatic)
-        mylabel.text = "current cell num: \(tbl_array.count)"
+        self.set_cur_row_num_and_select_index()
         //get the last cell
         mytblview.reloadData()
 
@@ -183,7 +195,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // remove a tableview cell for mytblview
         tbl_array.removeLast()
-        mylabel.text = "current cell num: \(tbl_array.count)"
+        self.set_cur_row_num_and_select_index()
         mytblview.reloadData()
 
         // let vc = storyboard?.instantiateViewController(identifier: "vc2") as! ViewController2
@@ -196,12 +208,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tbl_array[index_of_row_clicked].select_date = date_select_in
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("prepare")
-        if segue.identifier == "segue_timeset" {
-            // let vc = segue.destination as! TaskSettingScreen
-            // vc.delegate = self
-            print("receive segue_timeset")
+    func didDatePicked(date: Date) {
+        print("didDatePicked")
+        tbl_array[index_of_row_clicked].select_date = date
+        self.set_cur_task_time()
+        print("index_of_row_clicked = \(index_of_row_clicked) date = \(date)")
+    }
+
+    func set_cur_row_num_and_select_index() {
+        self.mylabel.text = "num: \(self.tbl_array.count) select: \(self.index_of_row_clicked + 1)"
+    }
+
+    func set_cur_task_time() {
+        if let date_in = tbl_array[index_of_row_clicked].select_date {
+            time_display_label.text = "\(date_in)"
+        }
+        else {
+            time_display_label.text = "no time set"
         }
     }
 }
