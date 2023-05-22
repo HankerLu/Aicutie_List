@@ -100,6 +100,9 @@
                                 <rect key="frame" x="214" y="608.66666666666663" width="85" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
+                                <connections>
+                                    <action selector="button_timeset_confirm_clicked:" destination="s02-Kj-VLR" eventType="touchUpInside" id="NgE-lM-Lub"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACA-mv-WEo">
                                 <rect key="frame" x="98" y="608.66666666666663" width="77" height="35"/>

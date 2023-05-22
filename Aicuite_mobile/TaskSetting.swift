@@ -21,6 +21,7 @@ class TaskSettingScreen: UIViewController {
         // let main_targetVC = main_storyboard.instantiateViewController(withIdentifier: "main_ID")
         print("button_timeset_confirm_clicked/ button_date_picker.date = \(button_date_picker.date)")
 
+        self.parent?.view.gestureRecognizers?.removeAll()
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()
         self.removeFromParent()
@@ -28,6 +29,8 @@ class TaskSettingScreen: UIViewController {
 
     @IBAction func button_timeset_cancel_clicked(_ sender: Any) {
         print("button_timeset_cancel_clicked")
+        //remove parent's gestureRecognizers
+        self.parent?.view.gestureRecognizers?.removeAll()
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()
         self.removeFromParent()

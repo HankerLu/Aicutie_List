@@ -107,12 +107,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
             let popupStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let popupViewController = popupStoryboard.instantiateViewController(withIdentifier: "timeset_ID")
-            // popupViewController.modalPresentationStyle = .overCurrentContext
+
             self.addChild(popupViewController)
             self.view.addSubview(popupViewController.view)
-
             popupViewController.didMove(toParent: self)
+            // self.present(popupViewController, animated: true, completion: nil)
+
             popupViewController.view.frame = CGRect(x: 25, y: 150, width: self.view.frame.width - 50, height: self.view.frame.height - 300)
+
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissTaskTimeSettingVC))
             self.view.addGestureRecognizer(tapGesture)
 
@@ -138,7 +140,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.children.last?.willMove(toParent: nil)
                 self.children.last?.view.removeFromSuperview()
                 self.children.last?.removeFromParent()
-                self.view.gestureRecognizers?.removeAll()
             }
         }
     } 
