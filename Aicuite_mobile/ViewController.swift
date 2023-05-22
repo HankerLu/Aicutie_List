@@ -138,6 +138,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.children.last?.willMove(toParent: nil)
                 self.children.last?.view.removeFromSuperview()
                 self.children.last?.removeFromParent()
+                self.view.gestureRecognizers?.removeAll()
             }
         }
     } 
@@ -194,4 +195,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tbl_array[index_of_row_clicked].select_date = date_select_in
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("prepare")
+        if segue.identifier == "segue_timeset" {
+            // let vc = segue.destination as! TaskSettingScreen
+            // vc.delegate = self
+            print("receive segue_timeset")
+        }
+    }
 }
