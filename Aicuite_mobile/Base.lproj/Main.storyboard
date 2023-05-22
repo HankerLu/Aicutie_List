@@ -13,7 +13,7 @@
             <objects>
                 <viewController storyboardIdentifier="main_ID" id="BYZ-38-t0r" customClass="ViewController" customModule="Aicuite_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2bT-fs-ec2">
@@ -69,6 +69,7 @@
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="tQi-V6-9Uf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gww-7P-3g9"/>
                     <connections>
                         <outlet property="button_add" destination="l3S-LX-D5Z" id="Hob-qi-4cp"/>
                         <outlet property="button_remove" destination="tfx-DI-5fz" id="D4h-iE-1cU"/>
@@ -81,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="81.679389312977094" y="-34.507042253521128"/>
         </scene>
-        <!--View Controller-->
+        <!--Task Setting Screen-->
         <scene sceneID="Jkg-hG-DA1">
             <objects>
-                <viewController id="s02-Kj-VLR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="timeset_ID" id="s02-Kj-VLR" customClass="TaskSettingScreen" customModule="Aicuite_mobile" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g73-9O-PeJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,11 +100,18 @@
                                 <rect key="frame" x="214" y="608.66666666666663" width="85" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Confirm"/>
+                                <connections>
+                                    <action selector="button_timeset_confirm_clicked:" destination="s02-Kj-VLR" eventType="touchUpInside" id="p2N-2m-o1O"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="bcB-uk-kNn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACA-mv-WEo">
                                 <rect key="frame" x="98" y="608.66666666666663" width="77" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cancle"/>
+                                <connections>
+                                    <action selector="button_timeset_cancel_clicked:" destination="s02-Kj-VLR" eventType="touchUpInside" id="14p-Hs-Z6h"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Detail Switch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xES-Ag-DOY">
                                 <rect key="frame" x="76" y="415.66666666666669" width="141" height="21"/>
@@ -127,6 +135,12 @@
                             <constraint firstItem="Fzo-5m-Ej8" firstAttribute="centerX" secondItem="g73-9O-PeJ" secondAttribute="centerX" constant="60" id="zcJ-eD-rsV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button_date_picker" destination="tWa-ol-Ot0" id="VVW-IO-dIG"/>
+                        <outlet property="button_time_hms_enable_switch" destination="fZN-vO-8Ka" id="vzC-ou-KCn"/>
+                        <outlet property="button_timeset_cancel" destination="ACA-mv-WEo" id="dJ5-5r-TJU"/>
+                        <outlet property="button_timeset_confirm" destination="Fzo-5m-Ej8" id="j4K-cP-ZOe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8c-7r-Vw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
