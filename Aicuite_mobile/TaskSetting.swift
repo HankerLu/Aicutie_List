@@ -14,6 +14,7 @@ class TaskSettingScreen: UIViewController {
     @IBOutlet var button_timeset_cancel: UIButton!
     @IBOutlet var button_date_picker: UIDatePicker!
     @IBOutlet var button_time_hms_enable_switch: UISwitch!
+    @IBOutlet var button_lhp_test: UIButton!
 
     @IBAction func button_timeset_confirm_clicked(_ sender: Any) {
 

@@ -13,7 +13,6 @@
 		36BCBDCD2A0E7A00009EACAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36BCBDCB2A0E7A00009EACAA /* Main.storyboard */; };
 		36BCBDCF2A0E7A01009EACAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36BCBDCE2A0E7A01009EACAA /* Assets.xcassets */; };
 		36BCBDD22A0E7A01009EACAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36BCBDD02A0E7A01009EACAA /* LaunchScreen.storyboard */; };
-		36C466272A179095002F5E1B /* tasktime.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36C466262A179095002F5E1B /* tasktime.storyboard */; };
 		36C466292A179D73002F5E1B /* TaskSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C466282A179D73002F5E1B /* TaskSetting.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +25,6 @@
 		36BCBDCE2A0E7A01009EACAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36BCBDD12A0E7A01009EACAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36BCBDD32A0E7A01009EACAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		36C466262A179095002F5E1B /* tasktime.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = tasktime.storyboard; sourceTree = "<group>"; };
 		36C466282A179D73002F5E1B /* TaskSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +64,6 @@
 				36BCBDCB2A0E7A00009EACAA /* Main.storyboard */,
 				36BCBDCE2A0E7A01009EACAA /* Assets.xcassets */,
 				36BCBDD02A0E7A01009EACAA /* LaunchScreen.storyboard */,
-				36C466262A179095002F5E1B /* tasktime.storyboard */,
 				36BCBDD32A0E7A01009EACAA /* Info.plist */,
 				36C466282A179D73002F5E1B /* TaskSetting.swift */,
 			);
@@ -132,7 +129,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				36BCBDD22A0E7A01009EACAA /* LaunchScreen.storyboard in Resources */,
-				36C466272A179095002F5E1B /* tasktime.storyboard in Resources */,
 				36BCBDCF2A0E7A01009EACAA /* Assets.xcassets in Resources */,
 				36BCBDCD2A0E7A00009EACAA /* Main.storyboard in Resources */,
 			);
