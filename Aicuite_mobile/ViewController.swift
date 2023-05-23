@@ -75,7 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         index_of_row_clicked = indexPath.row
         self.set_cur_row_num_and_select_index()
         self.set_cur_task_time()
-        var todoItem = tbl_array[indexPath.row]
+        let todoItem = tbl_array[indexPath.row]
         tbl_array[indexPath.row].isChecked = !todoItem.isChecked
 
         // indexPath.row % 2 == 0 ? (tableView.cellForRow(at: indexPath)?.backgroundColor = .systemPink) : (tableView.cellForRow(at: indexPath)?.backgroundColor = .systemTeal)

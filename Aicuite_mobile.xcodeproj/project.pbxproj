@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36AE2AE32A1CAB4100FFB8E6 /* FeedShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AE2AE22A1CAB4100FFB8E6 /* FeedShowViewController.swift */; };
 		36BCBDC62A0E7A00009EACAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BCBDC52A0E7A00009EACAA /* AppDelegate.swift */; };
 		36BCBDC82A0E7A00009EACAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BCBDC72A0E7A00009EACAA /* SceneDelegate.swift */; };
 		36BCBDCA2A0E7A00009EACAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BCBDC92A0E7A00009EACAA /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36AE2AE22A1CAB4100FFB8E6 /* FeedShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedShowViewController.swift; sourceTree = "<group>"; };
 		36BCBDC22A0E7A00009EACAA /* Aicuite_mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aicuite_mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36BCBDC52A0E7A00009EACAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36BCBDC72A0E7A00009EACAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		36BCBDC42A0E7A00009EACAA /* Aicuite_mobile */ = {
 			isa = PBXGroup;
 			children = (
+				36AE2AE22A1CAB4100FFB8E6 /* FeedShowViewController.swift */,
 				36BCBDC52A0E7A00009EACAA /* AppDelegate.swift */,
 				36BCBDC72A0E7A00009EACAA /* SceneDelegate.swift */,
 				36BCBDC92A0E7A00009EACAA /* ViewController.swift */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36BCBDCA2A0E7A00009EACAA /* ViewController.swift in Sources */,
+				36AE2AE32A1CAB4100FFB8E6 /* FeedShowViewController.swift in Sources */,
 				36C466292A179D73002F5E1B /* TaskSetting.swift in Sources */,
 				36BCBDC62A0E7A00009EACAA /* AppDelegate.swift in Sources */,
 				36BCBDC82A0E7A00009EACAA /* SceneDelegate.swift in Sources */,

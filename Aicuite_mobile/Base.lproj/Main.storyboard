@@ -53,6 +53,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Show"/>
                                 <connections>
                                     <action selector="button_feed_show_clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PLO-qM-AvC"/>
+                                    <segue destination="oQu-PU-33P" kind="show" id="rEZ-fG-Xo3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -101,11 +102,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tWa-ol-Ot0">
-                                <rect key="frame" x="0.0" y="308" width="393" height="36"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="tWa-ol-Ot0">
+                                <rect key="frame" x="66.666666666666686" y="306" width="249.99999999999994" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6qI-oF-Cnp"/>
+                                    <constraint firstAttribute="width" constant="250" id="7dg-NL-kMD"/>
+                                </constraints>
                             </datePicker>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fZN-vO-8Ka">
-                                <rect key="frame" x="257" y="410.66666666666669" width="51" height="31"/>
+                                <rect key="frame" x="257" y="412.66666666666669" width="51" height="26.666666666666686"/>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzo-5m-Ej8">
                                 <rect key="frame" x="214" y="608.66666666666663" width="85" height="35"/>
@@ -134,13 +139,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xES-Ag-DOY" firstAttribute="centerY" secondItem="g73-9O-PeJ" secondAttribute="centerY" id="1ol-xV-XER"/>
+                            <constraint firstItem="tWa-ol-Ot0" firstAttribute="centerX" secondItem="g73-9O-PeJ" secondAttribute="centerX" constant="-5" id="4bK-zP-H1n"/>
                             <constraint firstItem="Fzo-5m-Ej8" firstAttribute="centerY" secondItem="g73-9O-PeJ" secondAttribute="centerY" constant="200" id="F7a-Kq-kjP"/>
                             <constraint firstItem="ACA-mv-WEo" firstAttribute="centerX" secondItem="g73-9O-PeJ" secondAttribute="centerX" constant="-60" id="GVS-Nd-BV6"/>
+                            <constraint firstItem="fZN-vO-8Ka" firstAttribute="top" secondItem="tWa-ol-Ot0" secondAttribute="bottom" constant="66.666666666666686" id="HBP-L4-JFS"/>
                             <constraint firstItem="fZN-vO-8Ka" firstAttribute="centerX" secondItem="g73-9O-PeJ" secondAttribute="centerX" constant="85" id="OPa-Jl-Eh4"/>
                             <constraint firstItem="ACA-mv-WEo" firstAttribute="centerY" secondItem="g73-9O-PeJ" secondAttribute="centerY" constant="200" id="gW8-hA-lRu"/>
                             <constraint firstItem="tWa-ol-Ot0" firstAttribute="centerY" secondItem="g73-9O-PeJ" secondAttribute="centerY" constant="-100" id="o9r-YS-4tR"/>
                             <constraint firstItem="xES-Ag-DOY" firstAttribute="centerX" secondItem="g73-9O-PeJ" secondAttribute="centerX" constant="-50" id="rpQ-RB-biz"/>
-                            <constraint firstItem="tWa-ol-Ot0" firstAttribute="centerX" secondItem="g73-9O-PeJ" secondAttribute="centerX" id="tjt-9q-zWu"/>
                             <constraint firstItem="fZN-vO-8Ka" firstAttribute="centerY" secondItem="g73-9O-PeJ" secondAttribute="centerY" id="xh0-d9-Qbq"/>
                             <constraint firstItem="Fzo-5m-Ej8" firstAttribute="centerX" secondItem="g73-9O-PeJ" secondAttribute="centerX" constant="60" id="zcJ-eD-rsV"/>
                         </constraints>
@@ -155,6 +161,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8c-7r-Vw1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="890.83969465648852" y="-35.211267605633807"/>
+        </scene>
+        <!--Feed Show View Controller-->
+        <scene sceneID="Gzb-nn-evw">
+            <objects>
+                <viewController storyboardIdentifier="feedShow_ID" id="oQu-PU-33P" customClass="FeedShowViewController" customModule="Aicuite_mobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cKP-eZ-Dgo" customClass="Feed">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="fbu-ng-Xcj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mCn-hv-uRd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bo-lm-9tF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1724" y="-35"/>
         </scene>
     </scenes>
     <resources>
