@@ -82,7 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         for i in 0..<tbl_array.count {
             tableView.cellForRow(at: IndexPath(row: i, section: 0))?.backgroundColor = .none
         }
-        tableView.cellForRow(at: IndexPath(row: index_of_row_clicked, section: 0))?.backgroundColor = .systemPink
+        tableView.cellForRow(at: IndexPath(row: index_of_row_clicked, section: 0))?.backgroundColor = .systemGray
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -159,7 +159,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         print("viewDidLoad")
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .systemBackground
         mytblview.register(TodoItemCell.self, forCellReuseIdentifier: "tblcell1")
         // tbl_array.append("tbl data 1")
         // tbl_array.append("tbl data 2")
