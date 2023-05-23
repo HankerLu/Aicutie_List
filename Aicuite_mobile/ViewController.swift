@@ -41,10 +41,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var time_display_label: UILabel!
     @IBOutlet var button_add: UIButton!
     @IBOutlet var button_remove: UIButton!
+    @IBOutlet var button_feed_show: UIButton!
 //    @IBOutlet var mytblcell_1: UITableViewCell!
 //    @IBOutlet var mytblcell_2: UITableViewCell!
 //    @IBOutlet var mytblcell_3: UITableViewCell!
 //    @IBOutlet var mytblcell_4: UITableViewCell!
+
+    @IBAction func button_feed_show_clicked(_ sender: Any) {
+        print("button_feed_show_clicked")
+    }
     
     var tbl_array =  [TodoItem]()
     
@@ -94,26 +99,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             completionHandler(true)
         }
         let setTimeAction = UIContextualAction(style: .normal, title: "set time") { (action, view, completionHandler) in
-            // let alertController = UIAlertController(title: "time", message: nil, preferredStyle: .alert)
-            
-            // alertController.viewDidLoad()
-            // alertController.preferredContentSize = CGSize(width: 300,  height: 400)
-            // // datePicker.frame = CGRect(x: 0, y: 0, width: 300, height: 150)
-
-            // let datePicker = UIDatePicker()
-            // datePicker.datePickerMode = .time
-            // alertController.view.addSubview(datePicker)
-
-            // let okAction = UIAlertAction(title: "confirm", style: .default) { (action) in
-            //     let selectedTime = datePicker.date
-            //     print("selectedTime...")
-            // }
-            // alertController.addAction(okAction)
-            // let cancelAction = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
-            // alertController.addAction(cancelAction)
-            // self.present(alertController, animated: true, completion: nil)
-            
-
             let popupStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let popupViewController = popupStoryboard.instantiateViewController(withIdentifier: "timeset_ID")
             if let popupViewController = popupViewController as? TaskSettingScreen {
