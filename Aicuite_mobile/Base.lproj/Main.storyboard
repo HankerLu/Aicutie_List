@@ -169,14 +169,29 @@
                     <view key="view" contentMode="scaleToFill" id="cKP-eZ-Dgo" customClass="Feed">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="feed show data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cK1-Jr-cX0">
+                                <rect key="frame" x="138" y="410.66666666666669" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="fbu-ng-Xcj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cK1-Jr-cX0" firstAttribute="centerX" secondItem="cKP-eZ-Dgo" secondAttribute="centerX" id="DII-R9-KyI"/>
+                            <constraint firstItem="cK1-Jr-cX0" firstAttribute="centerY" secondItem="cKP-eZ-Dgo" secondAttribute="centerY" id="iaA-To-zEV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mCn-hv-uRd"/>
+                    <connections>
+                        <outlet property="button_feed_show_label" destination="cK1-Jr-cX0" id="pU4-R3-xNP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bo-lm-9tF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1724" y="-35"/>
+            <point key="canvasLocation" x="1722.9007633587785" y="-35.211267605633807"/>
         </scene>
     </scenes>
     <resources>
