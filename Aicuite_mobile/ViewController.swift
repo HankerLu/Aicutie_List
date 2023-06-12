@@ -41,13 +41,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet var time_display_label: UILabel!
     @IBOutlet var button_add: UIButton!
     @IBOutlet var button_remove: UIButton!
-    @IBOutlet var button_feed_show: UIButton!
+    @IBOutlet var button_calendar_show: UIButton!
 //    @IBOutlet var mytblcell_1: UITableViewCell!
 //    @IBOutlet var mytblcell_2: UITableViewCell!
 //    @IBOutlet var mytblcell_3: UITableViewCell!
 //    @IBOutlet var mytblcell_4: UITableViewCell!
 
-    @IBAction func button_feed_show_clicked(_ sender: Any) {
+    @IBAction func button_calendar_show_clicked(_ sender: Any) {
         print("button_feed_show_clicked")
     }
     

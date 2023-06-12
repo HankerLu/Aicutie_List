@@ -1,21 +1,17 @@
 //
-//  FeedShowViewController.swift
+//  CalendarViewController.swift
 //  Aicuite_mobile
 //
-//  Created by Hanker Lu on 2023/5/23.
+//  Created by Hanker Lu on 2023/6/12.
 //
 
 import UIKit
 
-class FeedShowViewController: UIViewController {
-
-    @IBOutlet var button_feed_show_label: UILabel!
+class CalendarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        button_feed_show_label.numberOfLines = 0
-        button_feed_show_label.text = "FeedShowView \n feed show data"
         // Do any additional setup after loading the view.
     }
     
