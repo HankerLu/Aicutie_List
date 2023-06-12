@@ -48,12 +48,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PHT-aN-CL3">
-                                <rect key="frame" x="163.66666666666666" y="768.66666666666663" width="66" height="35"/>
+                                <rect key="frame" x="75" y="768.66666666666663" width="93" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Calendar"/>
                                 <connections>
                                     <action selector="button_calendar_show_clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FJ0-PV-HFp"/>
                                     <segue destination="Js5-ui-IVx" kind="show" id="hEr-Tq-360"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtT-Hc-ywF">
+                                <rect key="frame" x="227.66666666666663" y="768.66666666666663" width="88" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Timeline"/>
+                                <connections>
+                                    <segue destination="BTO-eI-fTP" kind="show" id="SfY-Yh-rID"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,17 +70,19 @@
                         <constraints>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="trailing" secondItem="tfx-DI-5fz" secondAttribute="trailing" id="6Fj-yV-lan"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9kl-L1-bmz"/>
+                            <constraint firstItem="PHT-aN-CL3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-75" id="Bt7-h6-gNG"/>
+                            <constraint firstItem="PHT-aN-CL3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="360" id="Fxu-xP-2bD"/>
                             <constraint firstItem="tfx-DI-5fz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="360" id="J8j-NZ-Gtk"/>
                             <constraint firstItem="1Wc-zl-vje" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JhL-15-s4p"/>
                             <constraint firstItem="N33-OI-6PX" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-300" id="MXG-YE-h4n"/>
-                            <constraint firstItem="PHT-aN-CL3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sx1-Fr-VAW"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="centerX" secondItem="1Wc-zl-vje" secondAttribute="centerX" id="TxH-1a-msN"/>
+                            <constraint firstItem="GtT-Hc-ywF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="360" id="VTh-JO-CbD"/>
                             <constraint firstItem="l3S-LX-D5Z" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="360" id="W9u-ZT-ISX"/>
                             <constraint firstItem="l3S-LX-D5Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-170" id="Xqj-Tr-F1a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1Wc-zl-vje" secondAttribute="bottom" constant="54" id="YSg-Za-lLE"/>
-                            <constraint firstItem="PHT-aN-CL3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="360" id="YVy-qi-2pE"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Yu9-CH-fkW"/>
                             <constraint firstItem="N33-OI-6PX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aTu-Pk-ygF"/>
+                            <constraint firstItem="GtT-Hc-ywF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="75" id="dh5-H2-lO0"/>
                             <constraint firstItem="1Wc-zl-vje" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="320" id="eKz-z7-fd3"/>
                             <constraint firstItem="tfx-DI-5fz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="170" id="ePr-2d-ToI"/>
                             <constraint firstItem="2bT-fs-ec2" firstAttribute="leading" secondItem="l3S-LX-D5Z" secondAttribute="leading" id="qt5-qn-Hxp"/>
@@ -93,6 +103,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="81.679389312977094" y="-34.507042253521128"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fnH-jp-lEr">
+            <objects>
+                <viewController id="BTO-eI-fTP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uzr-ln-xO9">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="g2s-qJ-Ppu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jW6-Cw-7er"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Se-3q-Yol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="82" y="583"/>
         </scene>
         <!--Task Setting Screen-->
         <scene sceneID="Jkg-hG-DA1">
